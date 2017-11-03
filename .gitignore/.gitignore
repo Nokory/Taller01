@@ -1,0 +1,307 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace taller1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // esta parte nos permite recoger el dato, pero solo permite recogerlo en tipo string,
+            // se utilizo el Parse para convertirlo a entero
+            Console.WriteLine("que desea hacer: " +
+                "\n1.valor absoluto" +
+                "\n2.3 numeros unidos y determinar si son capicuos " +
+                "\n3.leer un numero y determinar si es par o impar" +
+                "\n4.ordenar 3 numeros" +
+                "\n5.determina un valor de pesos en dolares " +
+                "\n6.Promedio de 3 notas" +
+                "\n7.lectura de 3 longitudes y determinacion de si es o no un triangulo y que tipo de triangulo" +
+                "\n8.programa de la aseguradora" +
+                "\n9.inverso de un numero de 4 digitos " +
+                "\n10.determine si un numero de 3 digitos es capicuo" +
+                "\n11. salir");
+            string j = Console.ReadLine();
+            int J = int.Parse(j);
+            do
+            {
+                switch (J)
+                {
+
+                    case 1:
+                        // Este primer caso, lee un numero y devuelve su valor absoluto
+
+                        Console.WriteLine("Ingrese 1 numero");
+                        string l = Console.ReadLine();
+                        int L = int.Parse(l);
+                        if (L >= 0)
+                        {
+                            Console.WriteLine("el valor absoluto de su numero es: " + L);
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("el valor absoluto de su numero es: " + (L * -1));
+
+                        }
+
+                        break;
+                    case 2:
+                        // segundo caso lee tres numeros y determina si su union los hace capicuos
+                        Console.WriteLine("Ingrese 3 numeros");
+                        string m = Console.ReadLine();
+                        int M = int.Parse(m);
+
+                        string k = Console.ReadLine();
+                        int K = int.Parse(k);
+
+                        string n = Console.ReadLine();
+                        int N = int.Parse(n);
+
+                        // PENDIENTE
+
+
+
+
+
+                        break;
+                    case 3:
+                        // en este caso mediante el residuo sabemos si un numero es par o impar 
+                        Console.WriteLine("Ingrese 1 numero");
+                        string o = Console.ReadLine();
+                        int O = int.Parse(o);
+
+                        if ((O % 2) == 0)
+                        {
+                            Console.WriteLine(O + " es un numero par");
+
+                        }
+                        else
+                        {
+                            Console.WriteLine(O + " es un numero impar");
+                        }
+
+                        break;
+
+                    case 4:
+                        // se hace la lectura de tres numeros y valida todos sus posibles metodos de organizacion
+
+                        Console.WriteLine("Ingrese 3 numeros");
+                        string p = Console.ReadLine();
+                        int P = int.Parse(p);
+
+                        string q = Console.ReadLine();
+                        int Q = int.Parse(q);
+
+                        string r = Console.ReadLine();
+                        int R = int.Parse(r);
+
+                        if (P > Q && P > R && Q > R)
+                        {
+                            Console.WriteLine("el orden de mayor a menor es: " + P + Q + R);
+                        }
+                        else if (P > R && P > Q && R > Q)
+                        {
+                            Console.WriteLine("el orden de mayor a menor es: " + P + R + Q);
+                        }
+                        else if (Q > P && Q > R && P > R)
+                        {
+                            Console.WriteLine("el orden de mayor a menor es: " + Q + P + R);
+                        }
+                        else if (Q > R && Q > P && R > P)
+                        {
+                            Console.WriteLine("el orden de mayor a menor es: " + Q + R + P);
+                        }
+                        else if (R > P && R > Q && P > Q)
+                        {
+                            Console.WriteLine("el orden de mayor a menor es: " + R + P + Q);
+                        }
+                        else
+                        {
+                            Console.WriteLine("el orden de mayor a menor es: " + R + Q + P);
+                        };
+
+
+                        break;
+                    case 5:
+                        // division por tasa del mercado, 
+                        Console.WriteLine("Ingrese sus pesos");
+                        string s = Console.ReadLine();
+                        int S = int.Parse(s);
+
+                        double conversion = S / 3008.08;
+                        Console.WriteLine("el valor en dolares de su dinero es " + conversion + " USD");
+
+                        break;
+                    case 6:
+                        // es un promedio almacenado en un double que permita dar con exactitud la nota
+                        Console.WriteLine("Ingrese sus 3 notas ");
+                        string t = Console.ReadLine();
+                        int T = int.Parse(t);
+
+                        string u = Console.ReadLine();
+                        int U = int.Parse(u);
+
+                        string v = Console.ReadLine();
+                        int V = int.Parse(v);
+
+                        double promedio = (T + U + V) / 3.0;
+                        Console.WriteLine("su promedio es de " + promedio);
+                        break;
+
+                    case 7:
+                        Console.WriteLine("Ingrese 3 longitudes ");
+                        string w = Console.ReadLine();
+                        int W = int.Parse(w);
+
+                        string x = Console.ReadLine();
+                        int X = int.Parse(x);
+
+                        string y = Console.ReadLine();
+                        int Y = int.Parse(y);
+
+                        if ((W + X > Y) && (W + Y > X) && (X + Y > W))
+                        {
+                            if ((W == X) && (W == Y))
+                            {
+                                Console.WriteLine("las tres longitudes forman un triangulo equilatero");
+                            }
+                            else if ((W == X) || (W == Y) || (X == Y))
+                            {
+                                Console.WriteLine("las tres longitudes forman un triangulo isoceles");
+                            }
+                            else
+                            {
+                                Console.WriteLine("las tres longitudes forman un triangulo escaleno");
+                            };
+
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("estas tres longitudes no pueden formar un triangulo");
+                        }
+
+                        break;
+
+                    case 8:
+                        // este programa permite realizar el calculo del precio de la fianza para una empresa.
+                        // si el monto es menor o igual a 50.000 se le cobrara el 3% de la fianza,
+                        // si es mayor se le cobrara el 2%.
+                        Console.WriteLine("Bienvenido al programa de la aseguradora, si desea continuar operaciones" +
+                            " presione 1, si desea salir presione 2");
+                        string i = Console.ReadLine();
+                        int I = int.Parse(i);
+
+                        do
+                        {
+
+                            switch (I)
+                            {
+                                case 1:
+
+                                    Console.WriteLine("Ingrese el monto ");
+                                    string z = Console.ReadLine();
+                                    int Z = int.Parse(z);
+                                    if (Z >= 50000)
+                                    {
+                                        double costo1 = (Z * 3) / 100;
+                                        Console.WriteLine("el valor de su fianza es " + costo1);
+                                    }
+                                    else
+                                    {
+                                        double costo2 = (Z * 2) / 100;
+                                        Console.WriteLine("el valor de su fianza es " + costo2);
+                                    }
+                                    Console.WriteLine("si desea dejar de ingresar montos digite 2");
+                                    break;
+
+                                case 2:
+                                    Console.WriteLine("usted selecciono la opcion salir");
+                                    break;
+
+                            }
+                        } while (I != 2);
+
+
+
+                        break;
+
+                    case 9:
+                        /// se valida que el numero tenga 4 digitos, luego se separa digito a digito y se reorganiza uno a uno
+
+                        Console.WriteLine("Ingrese un numero de 4 digitos ");
+                        string a = Console.ReadLine();
+                        int A = int.Parse(a);
+                        int b, bc;
+                        if (A > 999 && A < 10000)
+                        {
+                            b = A % 10;
+                            A = A / 10;
+                            bc = b * 10;
+
+                            b = A % 10;
+                            A = A / 10;
+                            bc = (bc + b) * 10;
+
+                            b = A % 10;
+                            A = A / 10;
+                            bc = (bc + b) * 10;
+
+                            bc = bc + A;
+                            Console.WriteLine("el inverso del numero es " + bc);
+                        }
+                        else
+                        {
+                            Console.WriteLine(A + " no es de 4 digitos");
+                        }
+
+                        break;
+                    case 10:
+                        // se valida que sea un numero de 3 digitos, luego se separa en centenas, decenas y unidades 
+                        // finalmente, se igualan centenas y unidades, de ser iguales el numero es capicuo
+
+                        Console.WriteLine("Digite un numero");
+                        string c = Console.ReadLine();
+                        int C = int.Parse(c);
+                        if (C < 1000 && C > 99)
+                        {
+                            int cen = C / 100;
+                            int dec = (C % 100) / 10;
+                            int uni = (C % 100) % 10;
+
+                            if (cen == uni)
+                            {
+                                Console.WriteLine(C + " si es un numero capicuo");
+                            }
+                            else
+                            {
+                                Console.WriteLine(C + " no es un numero capicuo");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine(C + " No es un numero de 3 digitos");
+
+                        }
+
+
+                        break;
+                    case 11:
+                        Console.WriteLine("usted selecciono la opcion salir");
+
+                        break;
+
+                }
+
+            } while (J != 11);
+            Console.ReadKey();
+        }
+
+    }
+
+}
